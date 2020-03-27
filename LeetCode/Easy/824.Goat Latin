@@ -38,10 +38,37 @@ class Solution(object):
         :rtype: str
         """
         vowels = set('aeiouAEIOU')
-        def getLatin(word, i):
+        output = []
+        for i, word in enumerate(S.split()):
             if word[0] not in vowels:
                 word = word[1:] + word[:1]
-            return word + 'ma' + ('a'*(i+1))
-        return ' '.join(getLatin(word, i) for i, word in enumerate(S.split()))
+            output.append(word+'ma'+'a'*(i+1))
+        return ' '.join(output)
+        
+        
+        # def getLatin(word, i):
+        #     if word[0] not in vowels:
+        #         word = word[1:] + word[:1]
+        #     return word + 'ma' + ('a'*(i+1))
+        # return ' '.join(getLatin(word, i) for i, word in enumerate(S.split()))
+        
+        
+        # def latin(w, i):
+        #     if w[0] not in vowels:
+        #         w = w[1:] + w[:1]
+        #     return(w+'ma'+'a'*(i+1))
+        # return ' '.join(latin(w, i) for i, w in enumerate(S.split()))
+        
+        
+        
+        # for i, word in enumerate(words):
+        #     firstLetter = word[0]
+        #     print(firstLetter in vowels)
+        #     if firstLetter in vowels:
+        #         words[i] += "ma"
+        #     else:
+        #         words[i] = word[1:] + word[:1] + 'ma'
+        #     words[i] += 'a'*(i+1)
+        # return "".join(word+" " if i < len(words)-1 else word for i, word in enumerate(words))
 
-#Straight forward easy solution but runs poorly in time and memory, ~6% for both
+#Straight forward easy solution but runs poorly in time and memory, ~6% for both if we use the function inside. Else, if we don't define it it's about 90% Time complexity
