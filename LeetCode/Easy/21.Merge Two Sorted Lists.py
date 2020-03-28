@@ -9,10 +9,10 @@
 #First Approach: Create new linked list and iterate through the two input linked lists as we go, if one is greater than the other then just iterate one, else we iterate both
 
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 #Time complexity: O(N + M) where n & m are the lengths of l1 and l2, Space Complexity: O(M+N) since we are creating a new list that merges both linked lists
 
