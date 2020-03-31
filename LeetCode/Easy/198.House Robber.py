@@ -35,4 +35,3 @@ class Solution(object):
             num = nums[i]
             houses[i+1] = max(houses[i], houses[i-1]+num)
         return houses[-1]
-        
