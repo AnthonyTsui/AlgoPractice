@@ -25,19 +25,26 @@ class Solution(object):
         
         #Go through potential "middle" of a palindrome of the string,
         #and expand outwards in order to find all palindromes that with this midpoint
-
-        #Time complexity is O(N^2), as we go through N number of elements, and traverse outwards a maximum of N times
-
-        ans = 0
-        n = len(s)
-        for i in range((2*n)-1):
-            left = i / 2
-            right = left + i%2
-            while left >= 0 and right < n and s[left] == s[right]:
-                ans += 1
-                left -= 1
-                right += 1
-        return ans
+        # ans = 0
+        # n = len(s)
+        # for i in range((2*n)-1):
+        #     left = i / 2
+        #     right = left + i%2
+        #     while left >= 0 and right < n and s[left] == s[right]:
+        #         ans += 1
+        #         left -= 1
+        #         right += 1
+        # return ans
     
         #Another potential solution is to utilize dynamic programming to get the palindrome substrings
-        
+        #Both approaches will run in n^2 time
+        answer = 0
+        n = len(s)
+        palindromes = [[0]*n for c in s]
+        for i in range(n-1, -1, -1):
+            for j in range(i, n):
+                if s[i] == s[j] and ((j - i + 1) < 3 or palindromes[i+1][j-1] == 1):
+                    palindromes[i][j] = 1
+                    answer += 1
+        #print(palindromes)
+        return answer
