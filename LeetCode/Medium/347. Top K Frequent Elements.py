@@ -36,7 +36,7 @@ class Solution(object):
                 count[num] = 0
             count[num] += 1
             
-        for num, freq in count.iteritems():
+        for num, freq in count.items():
             if freq not in frequency:
                 frequency[freq] = [num]
             else:
