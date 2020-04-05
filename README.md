@@ -1,1 +1,1 @@
-### This is a repo for uploading my practice of algorithms and data structures for technical interviews
+### This is a repository for uploading my practice of algorithms and data structures for technical interviews
