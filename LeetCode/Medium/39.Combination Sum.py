@@ -38,7 +38,6 @@ class Solution(object):
         :type target: int
         :rtype: List[List[int]]
         """
-        seenValues = {}
         output = []
         dfs(candidates, 0, target, [], output)
         return output
