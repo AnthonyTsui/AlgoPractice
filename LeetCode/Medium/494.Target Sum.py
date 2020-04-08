@@ -33,9 +33,9 @@ class Solution(object):
         :rtype: int
         """
         self.memo = {}
-        currSum = 0
-        index = 0
         return self.dP(nums, S, 0, 0)
+
+        
     def dP(self, nums, target, index, currSum):
         if (index, currSum) in self.memo:
             return self.memo[(index, currSum)]
