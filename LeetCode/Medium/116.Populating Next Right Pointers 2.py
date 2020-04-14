@@ -27,7 +27,6 @@
 # Explanation: Given the above binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B.
 #  The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.
 
-"""
 # Definition for a Node.
 class Node(object):
     def __init__(self, val=0, left=None, right=None, next=None):
@@ -35,7 +34,6 @@ class Node(object):
         self.left = left
         self.right = right
         self.next = next
-"""
 
 class Solution(object):
     def connect(self, root):
