@@ -30,36 +30,59 @@ class Solution(object):
         :type grid: List[List[str]]
         :rtype: int
         """
-        checkedCells = [[False for j in range(len(grid[i]))] for i in range(len(grid))]
+        #More elegant solution
         
-        def checkNeighbors(row, col, grid):
-            width = len(grid[0])
-            height = len(grid)
-            output = []
-            if row > 0:
-                output.append([row-1, col])
-            if row < len(grid)-1:
-                output.append([row+1, col])
-            if col > 0:
-                output.append([row, col-1])
-            if col < len(grid[0])-1:
-                output.append([row, col+1])
-            return output
-                
         islands = 0
-        for row in range(len(grid)):
-            for col in range(len(grid[row])):
-                if checkedCells[row][col]:
-                    continue
-                checkedCells[row][col] = True
-                if grid[row][col] == "0":
-                    continue
-                islands += 1
-                stack = [[row, col]]
-                while stack:
-                    curr = stack.pop()
-                    checkedCells[curr[0]][curr[1]] = True
-                    if grid[curr[0]][curr[1]] == "1":
-                        grid[curr[0]][curr[1]] = "0"
-                        stack.extend(checkNeighbors(curr[0], curr[1], grid))
+        if not grid: return islands
+        
+        def dfs(grid, i, j):
+            if i <0 or j<0 or i >= len(grid) or j >= len(grid[0]) or grid[i][j] != '1':
+                return
+            grid[i][j] = '0'
+            dfs(grid, i+1, j)
+            dfs(grid, i-1, j)
+            dfs(grid, i, j+1)
+            dfs(grid, i, j-1)
+        
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                if grid[i][j] == '1':
+                    dfs(grid, i, j)
+                    islands += 1
         return islands
+        
+        
+        
+#         checkedCells = [[False for j in range(len(grid[i]))] for i in range(len(grid))]
+        
+#         def checkNeighbors(row, col, grid):
+#             width = len(grid[0])
+#             height = len(grid)
+#             output = []
+#             if row > 0:
+#                 output.append([row-1, col])
+#             if row < len(grid)-1:
+#                 output.append([row+1, col])
+#             if col > 0:
+#                 output.append([row, col-1])
+#             if col < len(grid[0])-1:
+#                 output.append([row, col+1])
+#             return output
+                
+#         islands = 0
+#         for row in range(len(grid)):
+#             for col in range(len(grid[row])):
+#                 if checkedCells[row][col]:
+#                     continue
+#                 checkedCells[row][col] = True
+#                 if grid[row][col] == "0":
+#                     continue
+#                 islands += 1
+#                 stack = [[row, col]]
+#                 while stack:
+#                     curr = stack.pop()
+#                     checkedCells[curr[0]][curr[1]] = True
+#                     if grid[curr[0]][curr[1]] == "1":
+#                         grid[curr[0]][curr[1]] = "0"
+#                         stack.extend(checkNeighbors(curr[0], curr[1], grid))
+#         return islands
