@@ -3,3 +3,6 @@
 
 
 > Question 21, and linked lists need to be reviewed in general
+
+
+>Breadth first search and other graph problems..
