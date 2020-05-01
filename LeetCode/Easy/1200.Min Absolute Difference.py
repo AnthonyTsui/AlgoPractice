@@ -26,6 +26,15 @@
 
 # 2 <= arr.length <= 10^5
 # -10^6 <= arr[i] <= 10^6
+
+
+
+#Approach:Utilize a dictionary to record every seen differences and their possible combinations.
+#Use sort() on the arr before hand, as this means every element's adjacent elements will be as close to its own value as possible.
+
+#Time complexity: O(nlogn)
+#Space complexity: O(N)
+
 import collections
 
 class Solution(object):
