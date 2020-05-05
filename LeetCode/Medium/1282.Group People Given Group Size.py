@@ -18,19 +18,26 @@
 #Time Complexity: O(N)
 #Space complexity: O(N)
 
+import collections
+
 class Solution(object):
     def groupThePeople(self, groupSizes):
         """
         :type groupSizes: List[int]
         :rtype: List[List[int]]
         """
-        answer =  []
-        mapping = {}
+        mapping = collections.defaultdict(list)
         for i, group in enumerate(groupSizes):
-            if group not in mapping:
-                mapping[group] = []
             mapping[group].append(i)
-            if len(mapping[group]) == group:
-                answer.append(mapping[group])
-                mapping.pop(group)
-        return answer
+        return [l[i:i+s] for s, l in mapping.items() for i in range(0, len(l), s)]
+
+        # answer =  []
+        # mapping = {}
+        # for i, group in enumerate(groupSizes):
+        #     if group not in mapping:
+        #         mapping[group] = []
+        #     mapping[group].append(i)
+        #     if len(mapping[group]) == group:
+        #         answer.append(mapping[group])
+        #         mapping.pop(group)
+        # return answer
