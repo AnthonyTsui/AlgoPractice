@@ -43,7 +43,7 @@ class Solution(object):
             if word not in bannedSet:
                 wordFreq[word] += 1
             
-        answer = max(wordFreq.iteritems(), key=lambda x: x[1])
+        answer = max(wordFreq.items(), key=lambda x: x[1])
 
         return answer[0]
         
