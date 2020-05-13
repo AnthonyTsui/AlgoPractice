@@ -30,6 +30,14 @@
 #Second approach for us would be to use a faster and slow pointer and see if they ever overlap. 
 #In the case that there is no cycle, we run the risk of trying to get .next of NoneType, so wrap in an exception
 
+
+#Time Complexity: O(N + K) where N = len of the linked list not part of the cycle, K = len of the cycle
+#We note that it takes both pointers N time to enter the cycle. Once in the cycle the number of steps apart is what determines how much longer the run goes.
+#Since the Faster pointer is 1 step ahead of the slower pointer, and proceeds 2x as fast, if the slow pointer enters 1 node ahead of the faster pointer, the two will meet
+#in the next iteration. For all other cases x > 1, we can see that each incrementation reduces to casse back down to 1 step ahead.
+
+#Space Complexity: O(1)
+
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -42,14 +50,23 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        if(head == None or head.next == None):return False
-        fast, slow = head.next, head
+        if not head or not head.next: return False
+        fast,slow = head.next, head
         while fast != slow:
-            if (fast == None or slow == None): return False
-            try:
-                fast = fast.next.next
-                slow = slow.next
-            except:
-                return False
+            if not fast.next or not fast.next.next: return False
+            fast = fast.next.next
+            slow = slow.next
         return True
+
+
+        # if(head == None or head.next == None):return False
+        # fast, slow = head.next, head
+        # while fast != slow:
+        #     if (fast == None or slow == None): return False
+        #     try:
+        #         fast = fast.next.next
+        #         slow = slow.next
+        #     except:
+        #         return False
+        # return True
             
