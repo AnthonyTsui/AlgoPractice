@@ -22,17 +22,62 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        newHead = curr = ListNode(0)
+        # Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def mergeTwoLists(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        if not l1 or not l2:
+            return l1 or l2
+        
+        dummy = curr = ListNode(0)
+        dummy.next = l1
+        
         while l1 and l2:
             if l1.val < l2.val:
-                curr.next = ListNode(l1.val)
                 l1 = l1.next
             else:
-                curr.next = ListNode(l2.val)
-                l2 = l2.next
+                nxt = curr.next
+                curr.next = l2
+                tmp = l2.next
+                l2.next = nxt
+                l2 = tmp
             curr = curr.next
         curr.next = l1 or l2
-        return newHead.next
+        return dummy.next
+                
+    
+        # newHead = curr = ListNode(0)
+        # while l1 and l2:
+        #     if l1.val < l2.val:
+        #         curr.next = l1
+        #         l1 = l1.next
+        #     else:
+        #         curr.next = l2
+        #         l2 = l2.next
+        #     curr = curr.next
+        # curr.next = l1 or l2
+        # return newHead.next
+
+        # newHead = curr = ListNode(0)
+        # while l1 and l2:
+        #     if l1.val < l2.val:
+        #         curr.next = ListNode(l1.val)
+        #         l1 = l1.next
+        #     else:
+        #         curr.next = ListNode(l2.val)
+        #         l2 = l2.next
+        #     curr = curr.next
+        # curr.next = l1 or l2
+        # return newHead.next
 
 
 #Time complexity: O(N + M) where n & m are the lengths of l1 and l2, Space Complexity: O(M+N) since we are creating a new list that merges both linked lists
