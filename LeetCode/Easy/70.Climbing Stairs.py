@@ -26,13 +26,12 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        # if n == 0: return 0
-        # if n == 1: return 1
-        # stairs = [0 for i in range(n)]
-        # stairs[0],stairs[1] = 1, 2
-        # for i in range(2, n):
-        #     stairs[i] = stairs[i-1] + stairs[i-2]
-        # return stairs[-1]
+        #to reach step 3: 1 step from step 2 or 2 steps form step 1
+        #to reach step 2: 1 step from step 1 or 2 steps from step 0
+        #to reachstep 1: 1 step from step 0
+        
+        if n <= 1: return 1
+
         prev, curr = 1, 2
         index =  2
         while index < n:
