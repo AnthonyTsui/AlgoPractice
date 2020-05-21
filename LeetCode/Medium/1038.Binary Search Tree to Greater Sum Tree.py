@@ -17,26 +17,40 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution(object):
-    def bstToGst(self, root):
+    runningSum = 0
+    def bstToGst(self, node):
         """
         :type root: TreeNode
         :rtype: TreeNode
         """
-        stack = []
-        curr = root
-        runningSum = 0 
-        while stack or curr:
-            if curr:
-                stack.append(curr)
-                curr = curr.right
-            else:
-                curr = stack.pop()
-                temp = curr.val
-                curr.val += runningSum
-                runningSum += temp
-                curr = curr.left
-        return root
+        if node.right: self.bstToGst(node.right)
+        node.val = self.runningSum = self.runningSum + node.val
+        if node.left: self.bstToGst(node.left)
+        return node  
+        
+        # stack = []
+        # curr = root
+        # runningSum = 0 
+        # while stack or curr:
+        #     if curr:
+        #         stack.append(curr)
+        #         curr = curr.right
+        #     else:
+        #         curr = stack.pop()
+        #         temp = curr.val
+        #         curr.val += runningSum
+        #         runningSum += temp
+        #         curr = curr.left
+        # return root
+        
+            
         
             
             
