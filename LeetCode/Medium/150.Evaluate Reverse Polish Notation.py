@@ -30,6 +30,13 @@
 # = 22
 
 
+#Time Complexity: O(N) where N =  len(tokens)
+#Space Complexity: O(N/2) where N = len(tokens) since for every 2 nums there must be 1 operation,
+#Even if all nums were stacked at the front (which yieldsthe largest stack size), it must still be n/2 as 'tokens' is a valid polish notation
+
+#Approach: utilize a stack to store the operands until we encounter an operator. We know that Reverse Polish Notation has the operands on the left of the operator,
+#so we just need to perform the operation on the top 2 elements of our stack, pop them out, and push the  result in.
+
 # import operator
 
 class Solution(object):
