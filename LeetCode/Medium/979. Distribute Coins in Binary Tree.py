@@ -32,7 +32,7 @@ class Solution:
             if not node:
                 return 0
             L, R = dfs(node.left), dfs(node.right)
-            self.ans = abs(L) + abs(R)
+            self.ans += abs(L) + abs(R)
             return node.val + L + R -1
         
         dfs(root)
