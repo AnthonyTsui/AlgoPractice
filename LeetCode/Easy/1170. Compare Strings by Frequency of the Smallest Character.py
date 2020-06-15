@@ -19,6 +19,8 @@
 #Time Complexity: O(w + wlogw + l*w) where w = len(words), l = len(list)
 #Space Complexity: O(w + l)
 
+from typing import List
+
 class Solution:
     def numSmallerByFrequency(self, queries: List[str], words: List[str]) -> List[int]:
         wordFreq = []
@@ -36,7 +38,6 @@ class Solution:
         
         ans = []
         for q in queries:
-            curr = 0
             freq = getFreq(q)
             if freq >= wordFreq[-1]:
                 ans.append(0)
