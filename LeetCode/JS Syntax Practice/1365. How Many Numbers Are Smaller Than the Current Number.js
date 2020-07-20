@@ -20,22 +20,33 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
 var smallerNumbersThanCurrent = function(nums) {
-    var sorted = [...nums].sort((a,b) => a - b)
-    var dict = {}
-    let smaller = 0
-    let curr = sorted[0]
-    dict[sorted[0]] = smaller
-    for(i=1; i<sorted.length;i++){
-        smaller += 1
-        if (curr == sorted[i]) {continue}
-        curr = sorted[i]
-        dict[curr] = smaller
-    }
-    var ans = new Array()
-    for(i=0; i < nums.length; i++){
-        ans.push(dict[nums[i]])
+    var sorted = Array.from(nums).sort((a, b) => b - a)
+    //var smaller = new Map(sorted.map((num, index) => [num, nums.length - index - 1]))
+    var smaller = new Map(sorted.map(function(num, index){
+        //console.log(num, nums.length-index-1)
+        return [num, nums.length-index-1]
+    }));
+    return nums.map(num => smaller.get(num))
+//     var sorted = [...nums].sort((a,b) => a - b)
+//     var dict = {}
+//     let smaller = 0
+//     let curr = sorted[0]
+//     dict[sorted[0]] = smaller
+//     for(i=1; i<sorted.length;i++){
+//         smaller += 1
+//         if (curr == sorted[i]) {continue}
+//         curr = sorted[i]
+//         dict[curr] = smaller
+//     }
+//     var ans = new Array()
+//     for(i=0; i < nums.length; i++){
+//         ans.push(dict[nums[i]])
         
-    }
-    return ans
+//     }
+//     return ans
 };
