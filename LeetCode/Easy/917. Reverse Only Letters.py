@@ -32,4 +32,4 @@ class Solution:
                 continue
             curr = stack.pop()
             ans[i] = curr
-        return ''.join(ans)
+        return ''.join(ans) 
