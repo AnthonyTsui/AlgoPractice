@@ -21,12 +21,19 @@
  * @return {boolean[]}
  */
 var kidsWithCandies = function(candies, extraCandies) {
-    
-    const max = Math.max(...candies)
-    let ans = [candies.length]
-    for(i = 0; i < candies.length; i++){
-        ans[i] = (candies[i] + extraCandies >= max) ? true : false;
-    }
+    const max = candies.reduce(function(a,b){ 
+        return Math.max(a,b)
+    });
+    var ans = []
+    candies.map(function(x){
+       ans.push(x + extraCandies >= max) 
+    });
     return ans
+    // const max = Math.max(...candies)
+    // let ans = [candies.length]
+    // for(i = 0; i < candies.length; i++){
+    //     ans[i] = (candies[i] + extraCandies >= max) ? true : false;
+    // }
+    // return ans
     
 };
