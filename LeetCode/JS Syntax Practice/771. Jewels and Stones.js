@@ -11,7 +11,6 @@
 // Input: J = "z", S = "ZZ"
 // Output: 0
 
-
 /**
  * @param {string} J
  * @param {string} S
@@ -20,14 +19,30 @@
 var numJewelsInStones = function(J, S) {
     let dict = new Map();
     let ans = 0;
-    [...S].forEach(function(c){
-        if (dict[c] == undefined){
-            dict[c] = 1
+    
+    for (let i = 0; i < S.length; i++){
+        if (dict[S[i]] == undefined){
+            dict[S[i]] = 1
         }
         else{
-            dict[c]++;
+            dict[S[i]] += 1;
         }
-    });
-    [...J].forEach(c => ans += (dict[c] !== undefined) ? dict[c] : 0)
+    };
+    for (let i = 0; i < J.length; i++){
+        if (dict[J[i]] !== undefined){ ans += dict[J[i]]}
+    }
     return ans
+    
+    // let dict = new Map();
+    // let ans = 0;
+    // [...S].forEach(function(c){
+    //     if (dict[c] == undefined){
+    //         dict[c] = 1
+    //     }
+    //     else{
+    //         dict[c]++;
+    //     }
+    // });
+    // [...J].forEach(c => ans += (dict[c] !== undefined) ? dict[c] : 0)
+    // return ans
 };
