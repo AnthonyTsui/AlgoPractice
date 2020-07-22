@@ -17,21 +17,31 @@
  * @return {number}
  */
 var numJewelsInStones = function(J, S) {
-    let dict = new Map();
-    let ans = 0;
+    let jewels = {};
+    let count = 0;
+    J.split('').forEach(j => {
+        jewels[j] = 1
+    });
+    S.split('').forEach(s =>{
+        count += jewels[s] || 0;
+    });
+    return count
     
-    for (let i = 0; i < S.length; i++){
-        if (dict[S[i]] == undefined){
-            dict[S[i]] = 1
-        }
-        else{
-            dict[S[i]] += 1;
-        }
-    };
-    for (let i = 0; i < J.length; i++){
-        if (dict[J[i]] !== undefined){ ans += dict[J[i]]}
-    }
-    return ans
+//     let dict = new Map();
+//     let ans = 0;
+    
+//     for (let i = 0; i < S.length; i++){
+//         if (dict[S[i]] == undefined){
+//             dict[S[i]] = 1
+//         }
+//         else{
+//             dict[S[i]] += 1;
+//         }
+//     };
+//     for (let i = 0; i < J.length; i++){
+//         if (dict[J[i]] !== undefined){ ans += dict[J[i]]}
+//     }
+//     return ans
     
     // let dict = new Map();
     // let ans = 0;
