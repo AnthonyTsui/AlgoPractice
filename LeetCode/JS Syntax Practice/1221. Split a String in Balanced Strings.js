@@ -31,18 +31,47 @@
  * @param {string} s
  * @return {number}
  */
+/**
+ * @param {string} s
+ * @return {number}
+ */
 var balancedStringSplit = function(s) {
-    let left, right, ans;
-    left = right = ans = 0;
+    let count = 0;
+    let ans = 0;
     
-    [...s].forEach(function(c){
-        if (c == 'L') { left += 1}
-        else { right += 1}
+    for(let i = 0; i < s.length; i++){
+        if (s[i] == 'R'){count++;}
+        else{count--;}
         
-        if (left == right){
-            ans += 1
-            left = right = 0
-        }
-    })
+        if (count == 0){ ans++;}
+    }
     return ans
+    
+    
+//     let left, right, ans;
+//     left = right = ans = 0;
+    
+//     for(i=0;i<s.length;i++){
+//         if (s[i] == 'L'){left++;}
+//         else{right++;}
+//         if (left == right){
+//             ans++;
+//             left = right = 0
+//         }
+//     }
+//     return ans
+    
+//     let left, right, ans;
+//     left = right = ans = 0;
+    
+//     [...s].forEach(function(c){
+//         if (c == 'L') { left += 1}
+//         else { right += 1}
+        
+//         if (left == right){
+//             ans += 1
+//             left = right = 0
+//         }
+//     })
+//     return ans
 };
