@@ -41,3 +41,13 @@ class Solution(object):
         #         answer.append(mapping[group])
         #         mapping.pop(group)
         # return answer
+
+#8/15/2020
+# class Solution:
+#     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
+#         ans = []
+#         groups = collections.defaultdict(list)
+#         for i, size in enumerate(groupSizes):
+#             groups[size].append(i)
+#         return [group[i:i+s] for s, group in groups.items() for i in range(0, len(group), s)]
+        
