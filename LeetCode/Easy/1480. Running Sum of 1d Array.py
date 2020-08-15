@@ -31,3 +31,13 @@ class Solution:
             ans.append(ans[i-1]+nums[i])
         return ans
     
+#8/15/2020
+# class Solution:
+#     def runningSum(self, nums: List[int]) -> List[int]:
+#         currSum =  nums[0]
+#         ans = [currSum]
+#         for i in range(1, len(nums)):
+#             currSum += nums[i]
+#             ans.append(currSum)
+#         return ans
+

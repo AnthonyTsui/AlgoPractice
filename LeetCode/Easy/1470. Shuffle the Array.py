@@ -30,3 +30,15 @@ class Solution:
             ans.append(left[i])
             ans.append(right[i])
         return ans
+#8/15/2020
+# class Solution(object):
+#     def shuffle(self, nums, n):
+#         """
+#         :type nums: List[int]
+#         :type n: int
+#         :rtype: List[int]
+#         """
+#         ans = []
+#         for i in range(n):
+#             ans.extend([nums[i], nums[n+i]])
+#         return ans
