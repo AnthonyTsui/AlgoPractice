@@ -33,3 +33,9 @@ class Solution(object):
         maxCandies = max(candies)
         
         return [True if candy + extraCandies >= maxCandies else False for candy in candies]
+
+#8/15/2020
+# class Solution:
+#     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+#         greatest = max(candies)
+#         return [True if candy+extraCandies >= greatest else False for candy in candies]

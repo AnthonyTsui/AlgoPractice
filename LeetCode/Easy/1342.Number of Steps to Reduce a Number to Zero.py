@@ -30,15 +30,26 @@
 #Time Complexity :O(logN)
 #Space Complexity: O(1)
 
-class Solution(object):
-    def numberOfSteps (self, num):
-        """
-        :type num: int
-        :rtype: int
-        """
+# class Solution(object):
+#     def numberOfSteps (self, num):
+#         """
+#         :type num: int
+#         :rtype: int
+#         """
+#         steps = 0
+#         curr = num
+#         while curr:
+#             curr = curr//2 if (curr%2==0) else curr - 1
+#             steps += 1
+#         return steps
+
+
+#8/15/2020
+class Solution:
+    def numberOfSteps (self, num: int) -> int:
         steps = 0
-        curr = num
-        while curr:
-            curr = curr//2 if (curr%2==0) else curr - 1
+        while num:
+            num = num//2 if num%2 == 0 else num - 1
             steps += 1
         return steps
+        
