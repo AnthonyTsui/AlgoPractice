@@ -23,4 +23,4 @@ class Solution:
                 for node in graph[cur]: dfs(node, path+[node])
         res = []
         dfs(0, [0])
-        return res
+        return re=
