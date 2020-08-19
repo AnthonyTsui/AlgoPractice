@@ -15,6 +15,15 @@
 # -10^3 <= nums[i] <= 10^3
 # -10^4 <= target <= 10^4
 
+#First sort the nums array 
+#Iterate through each number in the list and for each ith number, set two points: one at i+1 and one at the end of the array
+#Iterate the two pointers, with the left increasing and the right decreasing. We check the current sum of the numbers located at i and our two pointers
+#and compare them to our current closest number. If it is equivalent we simply return it, otherwise we check to see if it is closer.
+# 
+# We can optimize this slightly but skipping repeated numbers, as we would have checked them already.
+
+# Time complexity is O(N^2), as O(nlogn) for sorting and O(n^2) for our two-pointer iteration
+# Space complexity is O(1) as we only ever store a static number of variables at a time 
 from typing import List
 
 class Solution:
@@ -24,6 +33,8 @@ class Solution:
         for i in range(len(nums)-2):
             curr = nums[i]
             left, right = i+1, len(nums)-1
+            if i > 0 and nums[i-1] == nums[i]:
+                continue
             while left < right:
                 currSum = curr + nums[left] + nums[right]
                 if currSum == target: return target
