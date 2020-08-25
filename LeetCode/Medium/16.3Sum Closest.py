@@ -19,7 +19,6 @@
 #Iterate through each number in the list and for each ith number, set two points: one at i+1 and one at the end of the array
 #Iterate the two pointers, with the left increasing and the right decreasing. We check the current sum of the numbers located at i and our two pointers
 #and compare them to our current closest number. If it is equivalent we simply return it, otherwise we check to see if it is closer.
-# 
 # We can optimize this slightly but skipping repeated numbers, as we would have checked them already.
 
 # Time complexity is O(N^2), as O(nlogn) for sorting and O(n^2) for our two-pointer iteration
